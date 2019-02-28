@@ -18,15 +18,22 @@ functions:
       - http:
           path: /
           method: get
-
+    environment:
+      restaurants_api: https://5bmu4bthnk.execute-api.us-east-1.amazonaws.com/dev/restaurants
+      
   get-restaurants:
     handler: functions/get-restaurants.handler
     events:
       - http:
           path: /restaurants/
           method: get
+
     environment:
       restaurants_table: restaurants
+    iamRoleStatements:
+      - Effect: Allow
+        Action: dynamodb:scan
+        Resource: arn:aws:dynamodb:#{AWS::Region}:#{AWS::AccountId}:table/restaurants  
 
 # resources:
 #   Resources:
