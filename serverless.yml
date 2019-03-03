@@ -27,7 +27,7 @@ functions:
       - http:
           path: /restaurants/
           method: get
-
+          autorizer: aws_iam
     environment:
       restaurants_table: restaurants
     iamRoleStatements:
