@@ -22,5 +22,11 @@ describe(`When we invoke the GET / endpoint`, co.wrap(function* () {
     let restaurants = $('.restaurant', '#restaurantsUl');  
     expect(restaurants.length).to.equal(8);
 
+    console.log('run get index');
+setTimeout(() => {
+  
+}, 3000);
+
+
   }));
 }));
